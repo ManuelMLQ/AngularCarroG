@@ -26,16 +26,25 @@ export class CartComponent {
   nameFormControl = new FormControl('', [Validators.required,Validators.minLength(3)])
   apellidoFormControl = new FormControl('', [Validators.required,Validators.minLength(3)])
 
-  
+  regimenseleccionado: string = 'Dictadura';
   regimenes: string[] = ['Dictadura', 'Monarquia', 'Republica'];
   matcher = new MyErrorStateMatcher(); //https://material.angular.io/components/checkbox/examples
+  matcher2 = new MyErrorStateMatcher();
 
-  /*onSubmit(): void {
+  isChecked: boolean = false;
+
+  enviarDatos() {
     // Process checkout data here
     this.items = this.cartService.clearCart();
-    console.warn('Your order has been submitted', this.checkoutForm.value);
-    this.checkoutForm.reset();
-  }*/
+    
+    if(this.emailFormControl.errors == null && this.passwordFormControl.errors==null && this.nameFormControl.errors==null && this.apellidoFormControl.errors==null && this.isChecked){
+      alert("Enviado")
+    }else{
+      alert("Fallo en la validacion")
+    }
+
+  }
+
 }
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {

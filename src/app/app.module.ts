@@ -16,6 +16,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import {MatRadioModule} from '@angular/material/radio';
     MatInputModule,
     MatCheckboxModule,
     MatRadioModule,
+    FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: ProductListComponent },
