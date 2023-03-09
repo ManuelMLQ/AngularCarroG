@@ -35,10 +35,14 @@ export class CartComponent {
 
   enviarDatos() {
     // Process checkout data here
-    this.items = this.cartService.clearCart();
-    
     if(this.emailFormControl.errors == null && this.passwordFormControl.errors==null && this.nameFormControl.errors==null && this.apellidoFormControl.errors==null && this.isChecked){
       alert("Enviado")
+      this.items = this.cartService.clearCart();
+      this.emailFormControl.setValue("")
+      this.passwordFormControl.setValue("")
+      this.nameFormControl.setValue("")
+      this.apellidoFormControl.setValue("")
+      this.isChecked = false
     }else{
       alert("Fallo en la validacion")
     }
