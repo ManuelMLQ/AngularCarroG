@@ -1,0 +1,10 @@
+<h2>Product Details</h2>
+
+<div *ngIf="pais">
+  <img [src]="pais.image" />
+  <h3>Pais: {{ pais.name }}</h3>
+  <h4>Poblacion: {{ pais.population }}</h4>
+  <p>Region: {{ pais.region }}</p>
+  <p>Numeric Code: {{ pais.numericcode }}</p>
+  <button type="button" (click)="addToCart(pais)">Buy</button>
+</div>

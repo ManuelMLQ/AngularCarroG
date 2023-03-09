@@ -1,0 +1,41 @@
+<h2>Compra tus paises!!!!!</h2>
+
+<ul>
+  <li *ngFor="let item of myData$ | async">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-back">
+          <ng-template [ngIf]="item.region"
+            ><h4 class="textoPaises">Region: {{ item.region }}</h4></ng-template
+          >
+          <ng-template [ngIf]="item.population"
+            ><h4 class="textoPaises">
+              Population: {{ item.population }}
+            </h4></ng-template
+          >
+          <ng-template [ngIf]="item.numericCode"
+            ><h4 class="textoPaises">
+              Numeric Code: {{ item.numericCode }}
+            </h4></ng-template
+          >
+          <a
+            [title]="item.name + ' details'"
+            [routerLink]="['/pais', item.name]"
+            class="textoPaises"
+          >
+            Comprar
+          </a>
+        </div>
+        <div class="flip-card-front">
+          <ng-template [ngIf]="item.flags.png"
+            ><img [src]="item.flags.png"
+          /></ng-template>
+          <ng-template [ngIf]="item.name"
+            ><h3 class="textoPaises">{{ item.name }}</h3></ng-template
+          >
+          <h1></h1>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
