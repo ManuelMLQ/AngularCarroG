@@ -1,7 +1,80 @@
-<h3>Cart</h3>
+<h3>Paises a Comprar:</h3>
 
 <div class="cart-item" *ngFor="let item of items">
   <span>{{ item.name }}</span>
   <span>{{ item.population | currency }}</span>
   <button type="button" (click)="eliminarToCart(item)">Eliminar</button>
 </div>
+
+<div class="espacio"></div>
+
+<h3>Datos:</h3>
+<form class="example-form">
+
+  <mat-form-field class="example-mid-width">
+    <mat-label>Name</mat-label>
+    <input type="text" matInput [formControl]="nameFormControl" [errorStateMatcher]="matcher" placeholder="Manuel">
+    <mat-hint>Inserta un nombre valido</mat-hint>
+    <mat-error *ngIf="nameFormControl.hasError('email') && !nameFormControl.hasError('required')">
+      Al menos 3 caracteres
+    </mat-error>
+    <mat-error *ngIf="nameFormControl.hasError('required')">
+      Nombre requerido
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-mid-width">
+    <mat-label>Apellido</mat-label>
+    <input type="text" matInput [formControl]="apellidoFormControl" [errorStateMatcher]="matcher" placeholder="Lorite">
+    <mat-hint>Inserta un apellido valido</mat-hint>
+    <mat-error *ngIf="apellidoFormControl.hasError('email') && !apellidoFormControl.hasError('required')">
+      Al menos 3 caracteres
+    </mat-error>
+    <mat-error *ngIf="apellidoFormControl.hasError('required')">
+      Apellido requerido
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+      placeholder="pat@example.com">
+    <mat-hint>Inserta un email valido</mat-hint>
+    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+      Inserta un email valido
+    </mat-error>
+    <mat-error *ngIf="emailFormControl.hasError('required')">
+      Email requerido
+    </mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Password</mat-label>
+    <input type="password" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
+      placeholder="12341234">
+    <mat-hint>Al menos 8 caracteres</mat-hint>
+    <mat-error *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
+      Al menos 8 caracteres
+    </mat-error>
+    <mat-error *ngIf="passwordFormControl.hasError('required')">
+      Password requerido
+    </mat-error>
+  </mat-form-field>
+
+  <label id="example-radio-group-label">Elige el nuevo Régimen político</label>
+  <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+    <mat-radio-button class="example-radio-button" *ngFor="let regimenes of regimenes" [value]="regimenes">
+      {{regimenes}}
+    </mat-radio-button>
+  </mat-radio-group>
+
+  <section class="example-section">
+    <mat-checkbox class="example-margin">Acepto las condidiones</mat-checkbox>
+  </section>
+
+  <button mat-flat-button color="accent">Enviar</button>
+    
+
+
+</form>

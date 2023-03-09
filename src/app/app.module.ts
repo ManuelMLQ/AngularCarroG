@@ -11,16 +11,27 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
+
 @NgModule({
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatRadioModule,
     HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: ProductListComponent },
       { path: 'pais/:paisId', component: ProductDetailsComponent },
       { path: 'cart', component: CartComponent },
     ]),
+    MatButtonModule,
+    BrowserAnimationsModule,
   ],
   declarations: [
     AppComponent,
